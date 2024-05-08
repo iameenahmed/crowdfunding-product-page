@@ -1,48 +1,32 @@
 import closeIcon from "../assets/icon-close-modal.svg";
-import pledges from "../data/pledges";
-import PledgeItem from "./PledgeItem";
+import PledgesForm from "./PledgesForm";
 
-const PledgesModal = () => {
+interface PledgesModalProps {
+  closeModal: () => void;
+}
+
+const PledgesModal = ({ closeModal }: PledgesModalProps) => {
   return (
-    <div>
-      <div>
-        <img src={closeIcon} alt="close icon" />
-      </div>
-      <div>
-        <h2>Back this project</h2>
-        <p>
-          Want to support us in bringing Mastercraft Bamboo Monitor Riser out in
-          the world?
-        </p>
-      </div>
-      <div>
-        <form>
-          <div>
-            <div>
-              <label htmlFor="no-reward">Pledge with no reward</label>
-              <input type="radio" name="no-reward" id="no-reward" />
-              <p>
-                Choose to support us without a reward if you simply believe in
-                our project. As a backer, you will be signed up to receive
-                product updates via email.
-              </p>
-            </div>
-          </div>
-
-          {pledges.map(({ id, title, amount, detail, lefts }) => {
-            return (
-              <PledgeItem
-                key={id}
-                title={title}
-                amount={amount}
-                detail={detail}
-                lefts={lefts}
-              />
-            );
-          })}
-        </form>
+    <div className="fixed inset-0 z-20 flex items-center justify-center overflow-y-auto bg-black/40 text-sm text-DarkGray">
+      <div className="relative mx-6 max-h-[80vh] overflow-scroll rounded-lg bg-white px-5 py-8">
+        <button
+          onClick={closeModal}
+          aria-label="close modal"
+          className="absolute right-5 top-10"
+        >
+          <img src={closeIcon} alt="close icon" />
+        </button>
+        <div>
+          <h2 className="text-lg font-bold text-black">Back this project</h2>
+          <p className="my-5 text-DarkGray">
+            Want to support us in bringing Mastercraft Bamboo Monitor Riser out
+            in the world?
+          </p>
+        </div>
+        <PledgesForm />
       </div>
     </div>
   );
 };
+
 export default PledgesModal;
