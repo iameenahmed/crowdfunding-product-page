@@ -2,7 +2,11 @@ import { useState } from "react";
 import bookmarkIcon from "../assets/icon-bookmark.svg";
 import mastercraftLogo from "../assets/logo-mastercraft.svg";
 
-const Intro = () => {
+interface IntroProps {
+  showInputModal: () => void;
+}
+
+const Intro = ({ showInputModal }: IntroProps) => {
   const [isBookmarked, setIsBookmarked] = useState<boolean>(false);
   return (
     <div className="relative z-10 -mt-[12.5%] flex w-full flex-col items-center rounded-xl bg-white px-6 py-8 text-center shadow-md md:px-12">
@@ -18,7 +22,10 @@ const Intro = () => {
         </p>
       </div>
       <div className="flex w-full justify-center gap-x-6 font-semibold md:justify-between">
-        <button className="rounded-full bg-ModerateCyan px-6 py-3 text-white transition-colors duration-300 hover:bg-DarkCyan md:px-10">
+        <button
+          onClick={showInputModal}
+          className="rounded-full bg-ModerateCyan px-6 py-3 text-white transition-colors duration-300 hover:bg-DarkCyan md:px-10"
+        >
           Back this project
         </button>
         <button

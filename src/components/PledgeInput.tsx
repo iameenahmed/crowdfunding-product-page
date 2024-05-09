@@ -6,6 +6,7 @@ interface PledgeInputProps {
   amount: number;
   detail: string;
   lefts: number;
+  showSuccessModal: () => void;
 }
 
 const PledgeInput = ({
@@ -14,6 +15,7 @@ const PledgeInput = ({
   amount,
   detail,
   lefts,
+  showSuccessModal,
 }: PledgeInputProps) => {
   const [isChecked, setIsChecked] = useState(false);
 
@@ -44,7 +46,9 @@ const PledgeInput = ({
           <strong className="text-lg font-bold text-black">{lefts}</strong> left
         </p>
       </div>
-      {isChecked && <CustomPledgeInput id={id} />}
+      {isChecked && (
+        <CustomPledgeInput showSuccessModal={showSuccessModal} id={id} />
+      )}
     </div>
   );
 };

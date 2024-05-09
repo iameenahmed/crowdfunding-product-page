@@ -1,5 +1,4 @@
-import { useState } from "react";
-
+import useModal from "./components/useModal";
 import About from "./components/About";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
@@ -9,22 +8,30 @@ import PledgesModal from "./components/PledgesModal";
 import SuccessModal from "./components/SuccessModal";
 
 const App = () => {
-  const [isInputModalOpen, setIsInputModalOpen] = useState<boolean>(false);
-  const [isSuccessModalOpen, setIsSuccessModalOpen] = useState<boolean>(false);
+  const inputModal = useModal();
+  const successModal = useModal();
+
+  const showSuccessModal = () => {
+    inputModal.closeModal();
+    successModal.openModal();
+  };
 
   return (
     <div className="relative mx-auto max-w-[1440px] font-Commissioner">
       <Header />
       <Hero />
       <main className="mx-6 mb-16 max-w-[45.75rem] md:mx-auto md:mb-[7.75rem]">
-        <Intro />
+        <Intro showInputModal={inputModal.openModal} />
         <Stats />
-        <About />
-        {isInputModalOpen && (
-          <PledgesModal closeModal={() => setIsInputModalOpen(false)} />
+        <About showInputModal={inputModal.openModal} />
+        {inputModal.isOpen && (
+          <PledgesModal
+            closeModal={inputModal.closeModal}
+            showSuccessModal={showSuccessModal}
+          />
         )}
-        {isSuccessModalOpen && (
-          <SuccessModal closeModal={() => setIsSuccessModalOpen(false)} />
+        {successModal.isOpen && (
+          <SuccessModal closeModal={successModal.closeModal} />
         )}
       </main>
     </div>

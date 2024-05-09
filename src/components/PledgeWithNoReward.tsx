@@ -1,7 +1,14 @@
 import { useState } from "react";
 
-const PledgeWithNoReward = () => {
+interface PledgeWithNoRewardProps {
+  showSuccessModal: () => void;
+}
+
+const PledgeWithNoReward = ({ showSuccessModal }: PledgeWithNoRewardProps) => {
   const [isChecked, setIsChecked] = useState<boolean>(false);
+  const handleClick = () => {
+    showSuccessModal();
+  };
   return (
     <div
       className={`rounded-lg  ${isChecked ? "border-2 border-ModerateCyan" : "border border-DarkGray/50"}`}
@@ -41,7 +48,10 @@ const PledgeWithNoReward = () => {
             placeholder="username@example.com"
             className="my-4 rounded-full border border-DarkGray/50 px-4 py-2.5 md:col-span-2"
           />
-          <button className="cursor-pointer rounded-full bg-ModerateCyan py-3 font-medium text-white hover:bg-DarkCyan">
+          <button
+            onClick={handleClick}
+            className="cursor-pointer rounded-full bg-ModerateCyan py-3 font-medium text-white hover:bg-DarkCyan"
+          >
             Continue
           </button>
         </div>

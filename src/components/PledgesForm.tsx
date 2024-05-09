@@ -2,10 +2,18 @@ import pledges from "../data/pledges";
 import PledgeInput from "./PledgeInput";
 import PledgeWithNoReward from "./PledgeWithNoReward";
 
-const PledgesForm = () => {
+interface PledgesFormProps {
+  showSuccessModal: () => void;
+}
+
+const PledgesForm = ({ showSuccessModal }: PledgesFormProps) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+  };
+
   return (
-    <form className="space-y-6">
-      <PledgeWithNoReward />
+    <form className="space-y-6" onSubmit={handleSubmit}>
+      <PledgeWithNoReward showSuccessModal={showSuccessModal} />
       {pledges.map(({ id, title, amount, detail, lefts }) => {
         return (
           <PledgeInput
@@ -15,6 +23,7 @@ const PledgesForm = () => {
             amount={amount}
             detail={detail}
             lefts={lefts}
+            showSuccessModal={showSuccessModal}
           />
         );
       })}

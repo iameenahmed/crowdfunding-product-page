@@ -1,8 +1,16 @@
 interface CustomPledgeInputProps {
   id: number;
+  showSuccessModal: () => void;
 }
 
-const CustomPledgeInput = ({ id }: CustomPledgeInputProps) => {
+const CustomPledgeInput = ({
+  id,
+  showSuccessModal,
+}: CustomPledgeInputProps) => {
+  const handleClick = () => {
+    showSuccessModal();
+  };
+
   return (
     <div className="grid grid-cols-2 place-content-center items-center gap-x-4 gap-y-2 border-t border-DarkGray/50 p-5 text-center md:grid-cols-5 md:px-8">
       <label
@@ -18,7 +26,10 @@ const CustomPledgeInput = ({ id }: CustomPledgeInputProps) => {
         placeholder="$"
         className="my-4 rounded-full border border-DarkGray/50 px-4 py-2.5"
       />
-      <button className="cursor-pointer rounded-full bg-ModerateCyan py-3 font-medium text-white hover:bg-DarkCyan">
+      <button
+        onClick={handleClick}
+        className="cursor-pointer rounded-full bg-ModerateCyan py-3 font-medium text-white hover:bg-DarkCyan"
+      >
         Continue
       </button>
     </div>

@@ -1,7 +1,11 @@
 import pledges from "../data/pledges";
 import PledgeItem from "./PledgeItem";
 
-const About = () => {
+interface AboutProps {
+  showInputModal: () => void;
+}
+
+const About = ({ showInputModal }: AboutProps) => {
   return (
     <div className="rounded-lg bg-white px-6 py-7 text-sm text-DarkGray shadow-md md:px-12 md:text-base">
       <div>
@@ -28,6 +32,7 @@ const About = () => {
               amount={amount}
               detail={detail}
               lefts={lefts}
+              showInputModal={showInputModal}
             />
           );
         })}
