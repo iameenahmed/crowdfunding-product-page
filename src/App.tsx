@@ -9,14 +9,14 @@ import PledgesModal from "./components/PledgesModal";
 import SuccessModal from "./components/SuccessModal";
 
 const App = () => {
-  const [isInputModalOpen, setIsInputModalOpen] = useState<boolean>(true);
+  const [isInputModalOpen, setIsInputModalOpen] = useState<boolean>(false);
   const [isSuccessModalOpen, setIsSuccessModalOpen] = useState<boolean>(false);
 
   return (
-    <div className="font-Commissioner">
+    <div className="relative mx-auto max-w-[1440px] font-Commissioner">
       <Header />
       <Hero />
-      <main className="px-6 pb-16">
+      <main className="mx-6 mb-16 max-w-[45.75rem] md:mx-auto md:mb-[7.75rem]">
         <Intro />
         <Stats />
         <About />

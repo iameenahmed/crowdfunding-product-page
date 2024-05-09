@@ -7,8 +7,8 @@ interface PledgesModalProps {
 
 const PledgesModal = ({ closeModal }: PledgesModalProps) => {
   return (
-    <div className="fixed inset-0 z-20 flex items-center justify-center overflow-y-auto bg-black/40 text-sm text-DarkGray">
-      <div className="relative mx-6 max-h-[80vh] overflow-scroll rounded-lg bg-white px-5 py-8">
+    <div className="fixed inset-0 z-20 flex items-center justify-center overflow-y-auto bg-black/40 text-sm text-DarkGray md:text-[0.9375rem] md:leading-relaxed">
+      <div className="relative mx-6 max-h-[80vh] max-w-[45.75rem] overflow-scroll rounded-lg bg-white px-5 py-8 md:p-12">
         <button
           onClick={closeModal}
           aria-label="close modal"

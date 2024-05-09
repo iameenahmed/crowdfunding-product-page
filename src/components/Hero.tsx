@@ -3,7 +3,7 @@ import heroDesktop from "../assets/image-hero-desktop.jpg";
 
 const Hero = () => {
   return (
-    <picture className="relative top-0">
+    <picture className="relative left-0 top-0">
       <source srcSet={heroDesktop} media="(min-width: 768px)" />
       <img
         src={hero}
