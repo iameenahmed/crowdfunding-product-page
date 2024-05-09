@@ -47,7 +47,11 @@ const PledgeInput = ({
         </p>
       </div>
       {isChecked && (
-        <CustomPledgeInput showSuccessModal={showSuccessModal} id={id} />
+        <CustomPledgeInput
+          id={id}
+          amount={amount}
+          showSuccessModal={showSuccessModal}
+        />
       )}
     </div>
   );
