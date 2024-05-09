@@ -17,16 +17,16 @@ const Intro = () => {
           A beautiful & handcrafted monitor stand to reduce neck and eye strain.
         </p>
       </div>
-      <div className="flex w-full justify-between font-semibold">
+      <div className="flex w-full justify-center gap-x-6 font-semibold md:justify-between">
         <button className="rounded-full bg-ModerateCyan px-6 py-3 text-white transition-colors duration-300 hover:bg-DarkCyan md:px-10">
           Back this project
         </button>
         <button
           onClick={() => setIsBookmarked(!isBookmarked)}
-          className="text-DarkGray transition-all duration-300 hover:opacity-70 md:inline-flex md:items-center md:gap-4 md:rounded-full md:bg-DarkGray/20 md:pr-7"
+          className="text-DarkGray transition-all duration-300 hover:opacity-70 min-[500px]:inline-flex min-[500px]:items-center min-[500px]:gap-4 min-[500px]:rounded-full min-[500px]:bg-DarkGray/20 min-[500px]:pr-7"
         >
           <img src={bookmarkIcon} alt="bookmark icon" />
-          <span className="hidden md:inline">
+          <span className="hidden min-[500px]:inline">
             {isBookmarked ? "Bookmarked" : "Bookmark"}
           </span>
         </button>
