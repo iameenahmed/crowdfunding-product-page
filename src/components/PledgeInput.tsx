@@ -1,5 +1,6 @@
 import { useState } from "react";
 import CustomPledgeInput from "./CustomPledgeInput";
+import { useInputModal } from "../stores/modalsStore";
 interface PledgeInputProps {
   id: number;
   title: string;
@@ -15,7 +16,8 @@ const PledgeInput = ({
   detail,
   lefts,
 }: PledgeInputProps) => {
-  const [isChecked, setIsChecked] = useState(false);
+  const selectedId = useInputModal((state) => state.selectedId);
+  const [isChecked, setIsChecked] = useState(selectedId === id);
 
   return (
     <div

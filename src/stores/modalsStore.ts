@@ -1,19 +1,27 @@
 import { create } from "zustand";
 
-type ModalStore = {
+type SuccessModalStore = {
   isOpen: boolean;
   openModal: () => void;
   closeModal: () => void;
 };
 
-export const useSuccessModal = create<ModalStore>((set) => ({
+export const useSuccessModal = create<SuccessModalStore>((set) => ({
   isOpen: false,
   openModal: () => set({ isOpen: true }),
   closeModal: () => set({ isOpen: false }),
 }));
 
-export const useInputModal = create<ModalStore>((set) => ({
+type InputModalStore = {
+  isOpen: boolean;
+  selectedId: number;
+  openModal: (id: number) => void;
+  closeModal: () => void;
+};
+
+export const useInputModal = create<InputModalStore>((set) => ({
   isOpen: false,
-  openModal: () => set({ isOpen: true }),
+  selectedId: 0,
+  openModal: (id) => set({ isOpen: true, selectedId: id }),
   closeModal: () => set({ isOpen: false }),
 }));

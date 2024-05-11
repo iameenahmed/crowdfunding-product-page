@@ -22,7 +22,7 @@ const Intro = () => {
       </div>
       <div className="flex w-full justify-center gap-x-6 font-semibold md:justify-between">
         <button
-          onClick={openInputModal}
+          onClick={() => openInputModal(0)}
           className="rounded-full bg-ModerateCyan px-6 py-3 text-white transition-colors duration-300 hover:bg-DarkCyan md:px-10"
         >
           Back this project

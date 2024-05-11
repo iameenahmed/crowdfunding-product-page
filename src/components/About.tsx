@@ -26,6 +26,7 @@ const About = () => {
           return (
             <PledgeItem
               key={id}
+              id={id}
               title={title}
               amount={amount}
               detail={detail}
