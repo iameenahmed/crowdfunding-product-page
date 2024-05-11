@@ -5,7 +5,10 @@ const SuccessModal = () => {
   const closeModal = useSuccessModal((state) => state.closeModal);
 
   return (
-    <div className="fixed inset-0 z-20 flex items-center justify-center bg-black/40">
+    <div
+      onClick={(e) => e.target === e.currentTarget && closeModal()}
+      className="fixed inset-0 z-20 flex items-center justify-center bg-black/40"
+    >
       <div className="mx-6 flex max-w-[30rem] flex-col items-center rounded-xl bg-white px-5 py-8 text-center text-sm  md:px-11">
         <div>
           <img src={checkIcon} alt="check icon" />

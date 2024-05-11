@@ -31,7 +31,12 @@ const Header = () => {
       <nav>
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="absolute inset-0 min-h-screen bg-gradient-to-b from-black/50 to-transparent md:hidden">
+          <div
+            onClick={(e) =>
+              e.target === e.currentTarget && setIsMenuOpen(false)
+            }
+            className="fixed inset-0 min-h-screen bg-gradient-to-b from-black/50 to-transparent md:hidden"
+          >
             <ul className="absolute left-6 right-6 top-20 z-20 space-y-4 rounded-lg bg-white p-6  font-bold">
               <li className="cursor-pointer border-b border-DarkGray/30 pb-6 hover:opacity-70">
                 About
