@@ -21,7 +21,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [frontendmentor.io/solutions/crowdfunding-product-page](https://www.frontendmentor.io/solutions/crowdfunding-product-page)
+- Solution URL: [frontendmentor.io/solutions/crowdfunding-product-page](https://www.frontendmentor.io/solutions/cowdfunding-product-page-using-reactjs-and-zustand-deCTGv_TGq)
 
 ## My process
 
@@ -32,6 +32,11 @@ Users should be able to:
 - Tailwind CSS
 - TypeScript
 - ReactJS
+- Zustand
+
+### What I learned
+
+This project was really fun to do, It has a lot to tackle, from design hustles to functionality, It helps me, more specifically saying it urges me to learn about state management, and to do so I came across the Zustand, Which is powerful, lightweight, easy to learn, easy to implement and work with. Furthermore, it also helps me to learn about working with Modals, and i would really like to mention the built-in method of JavaScript: _toLacaleString()_ which formats the large numbers with commas.
 
 ## Author
 
