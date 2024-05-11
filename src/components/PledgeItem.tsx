@@ -1,18 +1,15 @@
+import { useInputModal } from "../stores/modalsStore";
+
 interface PledgeItemProps {
   title: string;
   amount: number;
   detail: string;
   lefts: number;
-  showInputModal: () => void;
 }
 
-const PledgeItem = ({
-  title,
-  amount,
-  detail,
-  lefts,
-  showInputModal,
-}: PledgeItemProps) => {
+const PledgeItem = ({ title, amount, detail, lefts }: PledgeItemProps) => {
+  const openInputModal = useInputModal((state) => state.openModal);
+
   return (
     <div
       className={`rounded-lg border border-DarkGray/50 px-6 py-8 md:grid md:grid-cols-2 md:items-center md:px-8 ${!lefts && "opacity-40"}`}
@@ -27,7 +24,7 @@ const PledgeItem = ({
         left
       </p>
       <button
-        onClick={showInputModal}
+        onClick={openInputModal}
         disabled={!lefts}
         className="mt-6 inline-block cursor-pointer rounded-full bg-ModerateCyan px-7 py-3 font-medium text-white transition-colors duration-300 hover:bg-DarkCyan disabled:cursor-not-allowed disabled:bg-black md:col-start-2 md:mt-0 md:justify-self-end"
       >
