@@ -1,8 +1,9 @@
-import pledges from "../data/pledges";
 import PledgeItem from "./PledgeItem";
 import { useInputModal } from "../stores/modalsStore";
+import { usePledgeStore } from "../stores/pledgeStore";
 
 const About = () => {
+  const pledges = usePledgeStore((state) => state.pledges);
   const showInputModal = useInputModal((state) => state.openModal);
 
   return (

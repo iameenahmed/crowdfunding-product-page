@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useStats } from "../stores/statsStore";
 import { useInputModal, useSuccessModal } from "../stores/modalsStore";
+import { usePledgeStore } from "../stores/pledgeStore";
 interface CustomPledgeInputProps {
   id: number;
   amount: number;
@@ -13,6 +14,7 @@ const CustomPledgeInput = ({ id, amount }: CustomPledgeInputProps) => {
   const updateStats = useStats((state) => state.updateStats);
   const closeInputModal = useInputModal((state) => state.closeModal);
   const openSuccessModal = useSuccessModal((state) => state.openModal);
+  const claimReward = usePledgeStore((state) => state.claimReward);
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setValue(event.target.value);
@@ -24,6 +26,7 @@ const CustomPledgeInput = ({ id, amount }: CustomPledgeInputProps) => {
   const handleClick = () => {
     if (isValid) return;
     updateStats(Number(value));
+    claimReward(id);
     closeInputModal();
     openSuccessModal();
   };

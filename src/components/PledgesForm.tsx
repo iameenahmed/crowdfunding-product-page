@@ -1,8 +1,10 @@
-import pledges from "../data/pledges";
+import { usePledgeStore } from "../stores/pledgeStore";
 import PledgeInput from "./PledgeInput";
 import PledgeWithNoReward from "./PledgeWithNoReward";
 
 const PledgesForm = () => {
+  const pledges = usePledgeStore((state) => state.pledges);
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
   };
