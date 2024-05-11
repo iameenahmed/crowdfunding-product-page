@@ -15,7 +15,7 @@ export const useSuccessModal = create<SuccessModalStore>((set) => ({
 type InputModalStore = {
   isOpen: boolean;
   selectedOption: string;
-  openModal: (title: string) => void;
+  openModal: (title?: string) => void;
   closeModal: () => void;
   updateSelectedOption: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
