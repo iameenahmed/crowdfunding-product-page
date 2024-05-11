@@ -14,14 +14,22 @@ export const useSuccessModal = create<SuccessModalStore>((set) => ({
 
 type InputModalStore = {
   isOpen: boolean;
-  selectedId: number;
-  openModal: (id: number) => void;
+  selectedOption: string;
+  openModal: (title: string) => void;
   closeModal: () => void;
+  updateSelectedOption: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 export const useInputModal = create<InputModalStore>((set) => ({
   isOpen: false,
-  selectedId: 0,
-  openModal: (id) => set({ isOpen: true, selectedId: id }),
+  selectedOption: "",
+  openModal: (title) => set({ isOpen: true, selectedOption: title }),
   closeModal: () => set({ isOpen: false }),
+  updateSelectedOption: (e: React.ChangeEvent<HTMLInputElement>) => {
+    set((state) => ({
+      selectedOption: !(state.selectedOption === e.currentTarget.name)
+        ? e.currentTarget.name
+        : "",
+    }));
+  },
 }));

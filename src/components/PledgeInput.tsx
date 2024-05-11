@@ -1,12 +1,13 @@
-import { useState } from "react";
 import CustomPledgeInput from "./CustomPledgeInput";
-import { useInputModal } from "../stores/modalsStore";
+// import { useInputModal } from "../stores/modalsStore";
 interface PledgeInputProps {
   id: number;
   title: string;
   amount: number;
   detail: string;
   lefts: number;
+  selectedOption: string;
+  onCheckChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 const PledgeInput = ({
@@ -15,10 +16,10 @@ const PledgeInput = ({
   amount,
   detail,
   lefts,
+  selectedOption,
+  onCheckChange,
 }: PledgeInputProps) => {
-  const selectedId = useInputModal((state) => state.selectedId);
-  const [isChecked, setIsChecked] = useState(selectedId === id);
-
+  const isChecked = selectedOption === title;
   return (
     <div
       className={`rounded-lg ${!lefts && "opacity-30"} ${isChecked ? "border-2 border-ModerateCyan" : "border border-DarkGray/50"}`}
@@ -36,7 +37,7 @@ const PledgeInput = ({
             name={title}
             id={title}
             checked={isChecked}
-            onChange={() => setIsChecked(!isChecked)}
+            onChange={(e) => onCheckChange(e)}
             disabled={!lefts}
             className="h-6 w-6 cursor-pointer disabled:cursor-not-allowed"
           />
