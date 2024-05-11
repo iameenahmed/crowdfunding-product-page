@@ -1,12 +1,10 @@
 import closeIcon from "../assets/icon-close-modal.svg";
 import PledgesForm from "./PledgesForm";
+import { useInputModal } from "../stores/modalsStore";
 
-interface PledgesModalProps {
-  closeModal: () => void;
-  showSuccessModal: () => void;
-}
+const PledgesModal = () => {
+  const closeModal = useInputModal((state) => state.closeModal);
 
-const PledgesModal = ({ closeModal, showSuccessModal }: PledgesModalProps) => {
   return (
     <div className="fixed inset-0 z-20 flex items-center justify-center overflow-y-auto bg-black/40 text-sm text-DarkGray md:text-[0.9375rem] md:leading-relaxed">
       <div className="relative mx-6 max-h-[80vh] max-w-[45.75rem] overflow-scroll rounded-lg bg-white px-5 py-8 md:p-12">
@@ -24,7 +22,7 @@ const PledgesModal = ({ closeModal, showSuccessModal }: PledgesModalProps) => {
             in the world?
           </p>
         </div>
-        <PledgesForm showSuccessModal={showSuccessModal} />
+        <PledgesForm />
       </div>
     </div>
   );

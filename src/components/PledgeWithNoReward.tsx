@@ -1,11 +1,7 @@
 import EmailInput from "./EmailInput";
 import { useState } from "react";
 
-interface PledgeWithNoRewardProps {
-  showSuccessModal: () => void;
-}
-
-const PledgeWithNoReward = ({ showSuccessModal }: PledgeWithNoRewardProps) => {
+const PledgeWithNoReward = () => {
   const [isChecked, setIsChecked] = useState<boolean>(false);
 
   return (
@@ -32,7 +28,7 @@ const PledgeWithNoReward = ({ showSuccessModal }: PledgeWithNoRewardProps) => {
           via email.
         </p>
       </div>
-      {isChecked && <EmailInput showSuccessModal={showSuccessModal} />}
+      {isChecked && <EmailInput />}
     </div>
   );
 };

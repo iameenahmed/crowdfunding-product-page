@@ -1,11 +1,10 @@
 import pledges from "../data/pledges";
 import PledgeItem from "./PledgeItem";
+import { useInputModal } from "../stores/modalsStore";
 
-interface AboutProps {
-  showInputModal: () => void;
-}
+const About = () => {
+  const showInputModal = useInputModal((state) => state.openModal);
 
-const About = ({ showInputModal }: AboutProps) => {
   return (
     <div className="rounded-lg bg-white px-6 py-7 text-sm text-DarkGray shadow-md md:px-12 md:text-base">
       <div>

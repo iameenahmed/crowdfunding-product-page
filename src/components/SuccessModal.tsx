@@ -1,10 +1,9 @@
 import checkIcon from "../assets/icon-check.svg";
+import { useSuccessModal } from "../stores/modalsStore";
 
-interface SuccessModalProps {
-  closeModal: () => void;
-}
+const SuccessModal = () => {
+  const closeModal = useSuccessModal((state) => state.closeModal);
 
-const SuccessModal = ({ closeModal }: SuccessModalProps) => {
   return (
     <div className="fixed inset-0 z-20 flex items-center justify-center bg-black/40">
       <div className="mx-6 flex max-w-[30rem] flex-col items-center rounded-xl bg-white px-5 py-8 text-center text-sm  md:px-11">
