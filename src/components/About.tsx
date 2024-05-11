@@ -5,7 +5,7 @@ const About = () => {
   const pledges = usePledgeStore((state) => state.pledges);
 
   return (
-    <div className="rounded-lg bg-white px-6 py-7 text-sm text-DarkGray shadow-md md:px-12 md:text-base">
+    <div className="rounded-lg bg-white px-6 py-7 text-sm text-DarkGray shadow-md md:px-12 md:py-11 md:text-base">
       <div>
         <h2 className="text-xl font-bold text-black">About this project</h2>
         <p className="mt-4 leading-[1.875] md:mt-8">

@@ -8,7 +8,7 @@ const Intro = () => {
   const openInputModal = useInputModal((state) => state.openModal);
 
   return (
-    <div className="relative z-10 -mt-[12.5%] flex w-full flex-col items-center rounded-xl bg-white px-6 py-8 text-center shadow-md md:px-12">
+    <div className="relative z-10 -mt-[12.5%] flex w-full flex-col items-center rounded-xl bg-white px-6 py-8 text-center shadow-md md:px-12 md:pb-12">
       <div className="absolute -top-7">
         <img src={mastercraftLogo} alt="mastercraft logo" />
       </div>
@@ -29,7 +29,7 @@ const Intro = () => {
         </button>
         <button
           onClick={() => setIsBookmarked(!isBookmarked)}
-          className="text-DarkGray transition-all duration-300 hover:opacity-70 min-[500px]:inline-flex min-[500px]:items-center min-[500px]:gap-4 min-[500px]:rounded-full min-[500px]:bg-DarkGray/20 min-[500px]:pr-7"
+          className="text-DarkGray transition-all duration-300 hover:opacity-70 min-[500px]:inline-flex min-[500px]:items-center min-[500px]:gap-4 min-[500px]:rounded-full min-[500px]:bg-DarkGray/10 min-[500px]:pr-7"
         >
           <img src={bookmarkIcon} alt="bookmark icon" />
           <span className="hidden min-[500px]:inline">
