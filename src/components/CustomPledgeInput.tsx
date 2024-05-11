@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useStats } from "../stores/statsStore";
 interface CustomPledgeInputProps {
   id: number;
   amount: number;
@@ -13,6 +14,8 @@ const CustomPledgeInput = ({
   const [value, setValue] = useState<string>(amount.toString());
   const [isValid, setIsValid] = useState<boolean>(false);
 
+  const updateStats = useStats((state) => state.updateStats);
+
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setValue(event.target.value);
     const inputRegex = /^(0*[1-9]\d*(\.\d+)?)$/;
@@ -22,6 +25,7 @@ const CustomPledgeInput = ({
 
   const handleClick = () => {
     if (isValid) return;
+    updateStats(Number(value));
     showSuccessModal();
   };
 
