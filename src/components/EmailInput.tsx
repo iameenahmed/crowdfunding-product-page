@@ -1,23 +1,24 @@
 import { useState } from "react";
+import { useInputModal, useSuccessModal } from "../stores/modalsStore";
 
-interface EmailInputProps {
-  showSuccessModal: () => void;
-}
-
-const EmailInput = ({ showSuccessModal }: EmailInputProps) => {
+const EmailInput = () => {
   const [email, setEmail] = useState<string>("");
   const [isValid, setIsValid] = useState<boolean>(false);
+
+  const closeInputModal = useInputModal((state) => state.closeModal);
+  const openSuccessModal = useSuccessModal((state) => state.openModal);
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(event.target.value);
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(event.target.value)) setIsValid(true);
+    if (emailRegex.test(event.target.value)) setIsValid(true);
     else setIsValid(false);
   };
 
   const handleClick = () => {
-    if (isValid) return;
-    showSuccessModal();
+    if (!isValid) return;
+    closeInputModal();
+    openSuccessModal();
   };
 
   return (
@@ -35,7 +36,7 @@ const EmailInput = ({ showSuccessModal }: EmailInputProps) => {
         placeholder="username@example.com"
         value={email}
         onChange={handleInputChange}
-        className={`my-4 rounded-full border px-4 py-2.5 text-DarkGray focus:outline-none focus:ring-1 md:col-span-2 ${isValid ? "border-red-500 text-pink-600 focus:border-red-500 focus:ring-red-500" : "border-DarkGray/50 focus:border-ModerateCyan focus:ring-ModerateCyan"}`}
+        className={`my-4 rounded-full border px-4 py-2.5 text-DarkGray focus:outline-none focus:ring-1 md:col-span-2 ${!isValid ? "border-red-500 text-pink-600 focus:border-red-500 focus:ring-red-500" : "border-DarkGray/50 focus:border-ModerateCyan focus:ring-ModerateCyan"}`}
       />
       <button
         onClick={handleClick}
